@@ -12,10 +12,21 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      background: linear-gradient(135deg, #fff7ed, #ffb703);
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('logo-pks.png') center/220px no-repeat;
+      opacity: 0.08;
+      pointer-events: none;
+    }
     }
     .card {
       background: #fff;
@@ -33,7 +44,7 @@
     }
     h1 {
       font-size: 1.4rem;
-      color: #ff6f61;
+      color: #f97316;
       margin-bottom: 8px;
     }
     h2 {
@@ -59,13 +70,13 @@
       display: inline-block;
       margin-top: 10px;
       padding: 14px 22px;
-      background: linear-gradient(135deg, #ff6f61, #ff9472);
+      background: linear-gradient(135deg, #f97316, #fb923c);
       color: #fff;
       text-decoration: none;
       border-radius: 999px;
       font-weight: 600;
       font-size: 0.95rem;
-      box-shadow: 0 8px 20px rgba(255,111,97,0.4);
+      box-shadow: 0 8px 20px rgba(249,115,22,0.45);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       animation: pulse 1.8s infinite;
     }
@@ -116,12 +127,12 @@
       🎬 Tonton Video di Drive
     </a>
     <div class="footer">
-      jazakillah ukti tetap semangat yaaaaaaaaa 💛
+      Dibuat dengan nuansa fun & penuh harap 💛
     </div>
   </div>
 
   <script>
-    const colors = ['#ff6f61', '#ffd166', '#06d6a0', '#4dabf7', '#c77dff'];
+    const colors = ['#f97316', '#fb923c', '#fdba74', '#ffffff', '#ffedd5'];
     for (let i = 0; i < 25; i++) {
       const confetti = document.createElement('div');
       confetti.classList.add('confetti');
@@ -134,3 +145,4 @@
   </script>
 </body>
 </html>
+
