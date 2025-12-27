@@ -3,181 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Permintaan Maaf</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Permintaan Maaf Presiden PKS</title>
   <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fffaf5, #ffe8cc);
       min-height: 100vh;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow-x: hidden;
     }
-
-    /* HERO KALM */
-    .hero {
-      position: fixed; inset: 0;
-      background: linear-gradient(180deg, #fff7ed, #ffe2c2);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 999; cursor: pointer;
-      animation: fadeIn 1.5s ease;
-    }
-    .hero-inner { text-align: center; max-width: 90%; }
-    .hero-title {
-      font-size: 44px; color:#d97706;
-      animation: slowFloat 4s ease-in-out infinite;
-    }
-    @keyframes slowFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-    .hero-sub { font-size: 17px; color:#7c5c3a; margin: 16px 0 28px; }
-    .hero-cta {
-      display:inline-block; padding:14px 34px; border-radius:50px;
-      background: #fff; color:#d97706; font-weight:600;
-      box-shadow:0 10px 30px rgba(217,119,6,.25);
-      transition:.4s;
-    }
-    .hero-cta:hover { transform:translateY(-3px); box-shadow:0 18px 36px rgba(217,119,6,.35); }
-
-    /* MAIN CARD */
     .card {
       background: #fff;
-      max-width: 950px; width: 92%;
-      border-radius: 28px; padding: 48px;
-      box-shadow: 0 25px 60px rgba(217,119,6,0.25);
+      width: 95%;
+      max-width: 420px;
+      border-radius: 24px;
+      padding: 24px 20px 32px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      animation: pop 0.8s ease;
     }
-    h1 { color:#d97706; text-align:center; }
-    .subtitle { text-align:center; color:#777; margin-bottom:36px; }
-    .content { display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; }
-    .photo img { width:100%; border-radius:22px; box-shadow:0 18px 40px rgba(0,0,0,.2); }
-    .text { font-size:17px; line-height:1.9; color:#333; }
-    .highlight { font-size:20px; font-weight:600; color:#d97706; }
-
-    .cta { margin-top:48px; text-align:center; }
-    .cta a {
-      padding:16px 40px; border-radius:60px;
-      background: linear-gradient(135deg,#f59e0b,#fbbf24);
-      color:#fff; font-weight:600; text-decoration:none;
-      box-shadow:0 14px 30px rgba(245,158,11,.45);
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
-
-    footer { margin-top:36px; text-align:center; font-size:14px; color:#888; }
-
-    #mainCard { opacity:0; transform:translateY(40px); transition:1s ease; }
-
-    @media(max-width:768px){ .content{grid-template-columns:1fr} .hero-title{font-size:34px} }
+    h1 {
+      font-size: 1.4rem;
+      color: #ff6f61;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 1.1rem;
+      color: #333;
+      margin: 0 0 16px;
+    }
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .emoji {
+      font-size: 2.2rem;
+      animation: float 2.5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 14px 22px;
+      background: linear-gradient(135deg, #ff6f61, #ff9472);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 20px rgba(255,111,97,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulse 1.8s infinite;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 26px rgba(255,111,97,0.55);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,111,97,0.5); }
+      70% { box-shadow: 0 0 0 14px rgba(255,111,97,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,111,97,0); }
+    }
+    .footer {
+      margin-top: 22px;
+      font-size: 0.75rem;
+      color: #888;
+    }
+    .confetti {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: red;
+      top: -10px;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
   </style>
 </head>
 <body>
-  <!-- HERO / BERANDA UTAMA -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-title">Hai Shofuraaa 😆🧡</h1>
-      <p class="hero-sub">Ada satu pesan penting… dengerin sambil lihat ya 🎧✨</p>
-      <div class="hero-cta" onclick="startExperience()">▶ Klik untuk mulai & nyalakan lagu</div>
+  <div class="card">
+    <div class="emoji">🙏✨</div>
+    <h1>Permintaan Maaf Terbuka</h1>
+    <h2>Muhammad Qais Nashrullah</h2>
+    <p>
+      Dengan penuh kerendahan hati, Presiden PKS
+      menyampaikan permohonan maaf kepada
+      <strong>Shofura Izzati</strong>.
+      <br/><br/>
+      Pesan ini disampaikan dengan niat baik,
+      kejujuran, dan harapan akan hubungan yang lebih
+      hangat dan penuh saling pengertian.
+    </p>
+    <p><strong>Yuk tonton videonya sampai selesai 👇</strong></p>
+    <a class="btn" href="https://drive.google.com" target="_blank">
+      🎬 Tonton Video di Drive
+    </a>
+    <div class="footer">
+       jazakillah ukhti 💛
     </div>
-    <div class="hero-inner">
-      <h1 class="hero-title">Hai Shofuraaa 😆🧡</h1>
-      <p class="hero-sub">Ada satu pesan penting… dengerin sambil lihat ya 🎧✨</p>
-      <div class="hero-cta">▶ Klik untuk mulai</div>
-    </div>
-  </section>
-
-  <!-- FLOATING EMOJIS -->
-  <div class="emoji-float">🟠</div>
-  <div class="emoji-float delay">✨</div>
-  <div class="emoji-float delay2">💛</div>
-
-  <!-- MAIN CARD -->
-  <div class="card fun" id="mainCard">
-    <h1>Heii Shofuraaa 😆</h1>
-    <div class="subtitle">Permintaan maaf yang serius tapi santai 🙏🧡</div>
-
-    <div class="content">
-      <div class="photo">
-        <img src="1000106575.jpg" alt="Foto Kebersamaan" />
-      </div>
-      <div class="text fun-text">
-        <p>
-          Halo <strong>Shofura Izzati</strong> 👋<br><br>
-          Aku, <strong>Muhammad Qais Nashrullah</strong>,
-          dengan penuh kesadaran (dan sedikit deg-degan 😬),
-          mau bilang satu hal penting…
-        </p>
-        <p class="highlight">👉 Aku minta maaf yaa 🙏🧡</p>
-        <p>
-          Kalau ada sikap, kata-kata, atau keputusan
-          yang bikin kamu nggak nyaman,
-          aku beneran nyesel dan pengen memperbaiki.
-        </p>
-        <p>
-          Semoga setelah ini kita bisa ketawa lagi,
-          ngobrol lagi, dan vibes-nya balik seru 🎉
-        </p>
-      </div>
-    </div>
-
-    <div class="cta">
-      <a href="https://drive.google.com/" target="_blank">🎬 Lanjut ke videonya</a>
-    </div>
-
-    <footer>Dibuat dengan niat baik, sedikit humor, dan banyak harapan 😄🧡</footer>
   </div>
 
-  <!-- BACKGROUND MUSIC -->
-  <audio id="bgMusic" loop>
-    <source src="Nadhif Basalamah - kota ini tak sama tanpamu (Official Lyric Video) - nadhif basalamah.mp3" type="audio/mpeg">
-  </audio>
-
-  <style>
-    /* HERO */
-    .hero {
-      position: fixed; inset: 0;
-      background: linear-gradient(135deg, #ffedd5, #ffd7a3);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 999; cursor: pointer;
-      animation: heroIn 1.2s ease;
-    }
-    @keyframes heroIn { from {opacity:0} to {opacity:1} }
-    .hero-inner { text-align: center; }
-    .hero-title { font-size: 48px; color:#ff6a00; animation: bounce 1.8s infinite; }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-    .hero-sub { font-size: 18px; color:#6b4a2b; margin: 12px 0 24px; }
-    .hero-cta {
-      display:inline-block; padding:16px 36px; border-radius:50px;
-      background: linear-gradient(135deg,#ff7a00,#ffa733);
-      color:#fff; font-weight:700; box-shadow:0 16px 36px rgba(255,122,0,.5);
-      animation: pulse 2s infinite;
-    }
-
-    /* FUN TWEAKS */
-    .fun h1 { color: #ff6a00; }
-    .fun-text { font-size: 18px; }
-    .highlight { font-size: 22px; font-weight: 600; color: #ff6a00; animation: wiggle 1.5s infinite; }
-    @keyframes wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(1deg)} 75%{transform:rotate(-1deg)} }
-    .emoji-float { position: fixed; bottom:-50px; left:10%; font-size:32px; animation: floatUp 6s infinite; z-index:1; }
-    .emoji-float.delay { left:50%; animation-delay:2s; }
-    .emoji-float.delay2 { left:80%; animation-delay:4s; }
-    @keyframes floatUp { from{transform:translateY(0);opacity:0} 20%{opacity:1} to{transform:translateY(-120vh);opacity:0} }
-
-    /* HIDE MAIN INIT */
-    #mainCard { opacity:0; transform: translateY(40px); transition: all .8s ease; }
-
-    @media(max-width:768px){ .hero-title{font-size:36px} }
-  </style>
-
   <script>
-    function startExperience(){
-      const hero = document.querySelector('.hero');
-      const card = document.getElementById('mainCard');
-      const music = document.getElementById('bgMusic');
-      hero.style.opacity = 0;
-      setTimeout(()=>hero.style.display='none',600);
-      card.style.opacity = 1;
-      card.style.transform = 'translateY(0)';
-      music.volume = 0.35;
-      music.play();
+    const colors = ['#ff6f61', '#ffd166', '#06d6a0', '#4dabf7', '#c77dff'];
+    for (let i = 0; i < 25; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
+      confetti.style.animationDelay = Math.random() * 2 + 's';
+      document.body.appendChild(confetti);
     }
   </script>
 </body>
