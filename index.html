@@ -171,31 +171,40 @@
   </style>
 </head>
 <body>
+  <!-- HERO / BERANDA UTAMA -->
+  <section class="hero" onclick="startExperience()">
+    <div class="hero-inner">
+      <h1 class="hero-title">Hai Shofuraaa 😆🧡</h1>
+      <p class="hero-sub">Ada satu pesan penting… dengerin sambil lihat ya 🎧✨</p>
+      <div class="hero-cta">▶ Klik untuk mulai</div>
+    </div>
+  </section>
+
+  <!-- FLOATING EMOJIS -->
   <div class="emoji-float">🟠</div>
   <div class="emoji-float delay">✨</div>
   <div class="emoji-float delay2">💛</div>
 
-  <div class="card fun">
-    <h1>Heii Shofuraaa panutanku 😆</h1>
-    <div class="subtitle">ini kubuat unutukmu dan bentuk terimakasih sekaligus permintaan maaf dari ku 🙏</div>
+  <!-- MAIN CARD -->
+  <div class="card fun" id="mainCard">
+    <h1>Heii Shofuraaa 😆</h1>
 
     <div class="content">
       <div class="photo">
         <img src="1000106575.jpg" alt="Foto Kebersamaan" />
       </div>
       <div class="text fun-text">
-        <p></p>
+        <p>
+          Halo <strong>Shofura Izzati</strong> 👋<br><br>
           Aku, <strong>Muhammad Qais Nashrullah</strong>,
-          dengan penuh kesadaran (dan sedikit rasa deg‑degan 😬),
+          dengan penuh kesadaran (dan sedikit deg-degan 😬),
           mau bilang satu hal penting…
         </p>
-        <p class="highlight">
-          👉 Aku minta maaf yaa 🙏
-        </p>
+        <p class="highlight">👉 Aku minta maaf yaa 🙏🧡</p>
         <p>
           Kalau ada sikap, kata-kata, atau keputusan
           yang bikin kamu nggak nyaman,
-          aku beneran nyesel dan pengen memperbaiki. aku minta maaf ya raa, karena aku suadh mengecewakan mu dan membuat mu overthinking
+          aku beneran nyesel dan pengen memperbaiki.
         </p>
         <p>
           Semoga setelah ini kita bisa ketawa lagi,
@@ -205,43 +214,45 @@
     </div>
 
     <div class="cta">
-      <a href="https://drive.google.com/" target="_blank">🎬 Klik di sini, ada videonya!</a>
+      <a href="https://drive.google.com/" target="_blank">🎬 Lanjut ke videonya</a>
     </div>
 
-    <footer>
-      Dibuat dengan niat baik, sedikit humor, dan banyak harapan 😄🧡
-    </footer>
+    <footer>Dibuat dengan niat baik, sedikit humor, dan banyak harapan 😄🧡</footer>
   </div>
 
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="Nadhif Basalamah - kota ini tak sama tanpamu (Official Lyric Video) - nadhif basalamah.mp3" type="audio/mpeg">
+  </audio>
+
   <style>
+    /* HERO */
+    .hero {
+      position: fixed; inset: 0;
+      background: linear-gradient(135deg, #ffedd5, #ffd7a3);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer;
+      animation: heroIn 1.2s ease;
+    }
+    @keyframes heroIn { from {opacity:0} to {opacity:1} }
+    .hero-inner { text-align: center; }
+    .hero-title { font-size: 48px; color:#ff6a00; animation: bounce 1.8s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .hero-sub { font-size: 18px; color:#6b4a2b; margin: 12px 0 24px; }
+    .hero-cta {
+      display:inline-block; padding:16px 36px; border-radius:50px;
+      background: linear-gradient(135deg,#ff7a00,#ffa733);
+      color:#fff; font-weight:700; box-shadow:0 16px 36px rgba(255,122,0,.5);
+      animation: pulse 2s infinite;
+    }
+
+    /* FUN TWEAKS */
     .fun h1 { color: #ff6a00; }
     .fun-text { font-size: 18px; }
-    .highlight {
-      font-size: 22px;
-      font-weight: 600;
-      color: #ff6a00;
-      animation: wiggle 1.5s infinite;
-    }
-    @keyframes wiggle {
-      0%,100% { transform: rotate(0); }
-      25% { transform: rotate(1deg); }
-      75% { transform: rotate(-1deg); }
-    }
-    .emoji-float {
-      position: fixed;
-      bottom: -50px;
-      left: 10%;
-      font-size: 32px;
-      animation: floatUp 6s infinite;
-      z-index: 0;
-    }
-    .emoji-float.delay { left: 50%; animation-delay: 2s; }
-    .emoji-float.delay2 { left: 80%; animation-delay: 4s; }
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 0; }
-      20% { opacity: 1; }
-      to { transform: translateY(-120vh); opacity: 0; }
-    }
-  </style>
-</body>
+    .highlight { font-size: 22px; font-weight: 600; color: #ff6a00; animation: wiggle 1.5s infinite; }
+    @keyframes wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(1deg)} 75%{transform:rotate(-1deg)} }
+    .emoji-float { position: fixed; bottom:-50px; left:10%; font-size:32px; animation: floatUp 6s infinite; z-index:1; }
+    .emoji-float.delay { left:50%; animation-delay:2s; }
+    .emoji-float.delay2 { left:80%; animation-delay:4s; }
+    @keyframes floatUp { from{transform:translateY(0);opacity:0} 20%{opacity:1} to{transfor
 </html>
