@@ -1,367 +1,142 @@
-<!DOCTYPE html<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Permintaan Maaf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #fff176, #ffeb3b);
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    header {
-      padding: 70px 20px 30px;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      color: #1a237e;
-      animation: fadeDown 1.5s ease;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #333;
-      max-width: 760px;
-      margin: 18px auto;
-      line-height: 1.8;
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Dancing Minions */
-    .dance-area {
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      min-height: 100vh;
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: flex-end;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin: 30px 0 10px;
     }
-
-    .dance-area img {
-      width: 170px;
-      animation: dance 1.2s infinite ease-in-out;
-    }
-
-    .dance-area img:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .dance-area img:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes dance {
-      0% { transform: rotate(0deg) translateY(0); }
-      25% { transform: rotate(5deg) translateY(-15px); }
-      50% { transform: rotate(-5deg) translateY(0); }
-      75% { transform: rotate(5deg) translateY(-10px); }
-      100% { transform: rotate(0deg) translateY(0); }
-    }
-
     .card {
-      background: #ffffffee;
-      margin: 35px auto;
-      padding: 40px 30px;
-      border-radius: 25px;
-      max-width: 880px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-      animation: fadeUp 1.6s ease;
+      background: #fff;
+      max-width: 900px;
+      width: 90%;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      animation: fadeIn 1.5s ease;
     }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(50px); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    .btn {
+    h1 {
+      text-align: center;
+      color: #1f3c88;
+      margin-bottom: 10px;
+      animation: slideDown 1.2s ease;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .photo img {
+      width: 100%;
+      border-radius: 18px;
+      animation: zoomIn 1.5s ease;
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+      animation: fadeIn 2s ease;
+    }
+    .text strong { color: #1f3c88; }
+    .cta {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta a {
       display: inline-block;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #1f3c88, #4e73df);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    .cta a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(31,60,136,0.4);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(78,115,223,0.6); }
+      70% { box-shadow: 0 0 0 20px rgba(78,115,223,0); }
+      100% { box-shadow: 0 0 0 0 rgba(78,115,223,0); }
+    }
+    footer {
       margin-top: 30px;
-      padding: 18px 42px;
-      background: linear-gradient(45deg, #1a237e, #3949ab);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 40px;
-      font-size: 1.15rem;
-      box-shadow: 0 10px 25px rgba(26,35,126,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 15px 35px rgba(26,35,126,0.6);
-    }
-
-    audio {
-      margin-top: 20px;
-      width: 80%;
-      max-width: 400px;
-    }
-
-    footer {
-      margin: 60px 0 25px;
-      font-size: 0.95rem;
-      color: #444;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>Permintaan Maaf yang Tulus</h1>
-  <p>Disampaikan dengan kejujuran, tanggung jawab, dan harapan memperbaiki keadaan</p>
-</header>
-
-<div class="dance-area">
-  <img src="https://i.ibb.co/9Yr4YcY/minion3.png" alt="Minion Dance">
-  <img src="https://i.ibb.co/4t8g1X4/minion1.png" alt="Minion Dance">
-  <img src="https://i.ibb.co/jh2mJvM/minion2.png" alt="Minion Dance">
-</div>
-
-<div class="card">
-  <p>
-    Dengan penuh kesadaran dan kerendahan hati, saya,
-    <strong>Muhammad Qais Nashrullah</strong>, selaku Presiden PKS,
-    menyampaikan permohonan maaf yang sebesar-besarnya kepada
-    <strong>Shofura Izzati</strong>.
-  </p>
-  <p>
-    Permintaan maaf ini lahir dari refleksi yang mendalam,
-    rasa tanggung jawab moral, serta keinginan tulus untuk
-    memperbaiki kekeliruan yang telah terjadi.
-  </p>
-  <p>
-    Diiringi langkah kecil para Minion yang terus menari,
-    terselip harapan besar agar maaf ini diterima dengan hati yang lapang,
-    demi terjaganya silaturahmi dan kebaikan ke depan.
-  </p>
-
-  <audio controls>
-    <source src="https://youtu.be/grp6FCnioMM?si=FpKWwrvmRIRCHH71" type="audio/mpeg">
-    
-  </audio>
-
-  <br>
-
-  <a class="btn" href="https://drive.google.com" target="_blank">
-    🎬 Tonton Video Permintaan Maaf
-  </a>
-</div>
-
-<footer>
-  Dibuat dengan ketulusan, iringan rasa, dan semangat memperbaiki diri 🌼
-</footer>
-
-</body>
-</html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Permintaan Maaf</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Comic Sans MS', 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #fff176, #ffeb3b);
-      overflow-x: hidden;
       text-align: center;
+      font-size: 14px;
+      color: #777;
     }
-    header {
-      padding: 60px 20px 30px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #1a237e;
-    }
-    p {
-      font-size: 1.1rem;
-      color: #333;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.7;
-    }
-
-    /* Minion animation */
-    .minion {
-      width: 120px;
-      height: 180px;
-      background: #ffeb3b;
-      border-radius: 60px 60px 40px 40px;
-      margin: 40px auto;
-      position: relative;
-      animation: bounce 2s infinite;
-    }
-    .eye {
-      width: 40px;
-      height: 40px;
-      background: #fff;
-      border-radius: 50%;
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      border: 4px solid #555;
-    }
-    .eye::after {
-      content: '';
-      width: 15px;
-      height: 15px;
-      background: #000;
-      border-radius: 50%;
-      position: absolute;
-      top: 12px;
-      left: 12px;
-    }
-    .mouth {
-      width: 40px;
-      height: 20px;
-      border-bottom: 4px solid #000;
-      position: absolute;
-      bottom: 40px;
-      left: 40px;
-      border-radius: 0 0 40px 40px;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    .card {
-      background: #ffffffdd;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 800px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 15px 30px;
-      background: #1a237e;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .btn:hover {
-      background: #0d133d;
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin: 50px 0 20px;
-      font-size: 0.9rem;
-      color: #444;
+    @media (max-width: 768px) {
+      .content { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Permintaan Maaf yang Tulus</h1>
-  </header>
-
-  <div class="minion">
-    <div class="eye"></div>
-    <div class="mouth"></div>
-  </div>
-
   <div class="card">
-    <p>
-      Dengan penuh kesadaran dan kerendahan hati, saya,
-      <strong>Muhammad Qais Nashrullah</strong>, selaku Presiden PKS,
-      menyampaikan permohonan maaf yang sebesar-besarnya kepada
-      <strong>Shofura Izzati</strong>.
-    </p>
-    <p>
-      Permintaan maaf ini lahir dari refleksi mendalam, tanggung jawab
-      moral, serta harapan agar silaturahmi, kepercayaan, dan kebaikan
-      dapat kembali terjaga.
-    </p>
-    <p>
-      Sebagaimana Minion yang selalu berusaha memperbaiki kesalahan
-      dengan ketulusan dan senyum, demikian pula harapan saya:
-      agar maaf ini diterima dengan hati yang lapang.
-    </p>
+    <h1>Permintaan Maaf</h1>
+    <div class="subtitle">Dengan penuh kesadaran dan ketulusan</div>
 
-    <a class="btn" href="https://drive.google.com" target="_blank">
-      🎬 Tonton Video Permintaan Maaf
-    </a>
+    <div class="content">
+      <div class="photo">
+        <!-- Ganti src di bawah dengan foto yang diinginkan -->
+        <img src="https://www.google.com/search?sca_esv=9ab5ee02a9f795df&rlz=1C1GCEA_enID1115ID1115&sxsrf=AE3TifM8ru4JVF6XFFwGBBlRmfxHxr7A4w:1766818626281&udm=2&fbs=AIIjpHykWxmO2YCYQJSVI5m5OREjL565wVkEiHz50qLBZxSnIyS3JW1yY_vWFsVi4ACAV2ZsMF7BwmoSJdRFQEiU60sTnQu2w2YrdwZtcM3E5FAFL2cZi2_WhQ4wCf3bQsT38SnuDpu8AOIFlV_Ee-BT6BXtOQ9ErlzxpXIeA5yw70v-Ar-mOI1VOyRLe5tN_QfFqAY4bMetAU_1BpzvaKz9t0vhr3tJjg&q=bob+minion+hd&sa=X&ved=2ahUKEwj_oOikmN2RAxVmxDgGHaBpE14QtKgLegQIFBAB&biw=1280&bih=593&dpr=1.5#sv=CAMSVhoyKhBlLXNEb1lxNERQMkJfeFFNMg5zRG9ZcTREUDJCX3hRTToOVE5hZ29FSHZJUHVNWU0gBCocCgZtb3NhaWMSEGUtc0RvWXE0RFAyQl94UU0YADABGAcggufe2g8wAkoKCAIQAhgCIAIoAg" alt="Foto Kebersamaan" />
+      </div>
+      <div class="text">
+        <p>
+          Saya, <strong>Muhammad Qais Nashrullah</strong>, selaku Presiden PKS,
+          dengan kerendahan hati menyampaikan permohonan maaf yang sebesar-besarnya
+          kepada <strong>Shofura Izzati</strong>.
+        </p>
+        <p>
+          Permintaan maaf ini lahir dari kesadaran penuh atas sikap, ucapan,
+          maupun keputusan yang telah menimbulkan ketidaknyamanan, luka,
+          atau kekecewaan.
+        </p>
+        <p>
+          Saya berharap permohonan maaf ini dapat menjadi langkah awal
+          untuk memperbaiki hubungan, menumbuhkan kembali kepercayaan,
+          dan menjaga nilai saling menghormati.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <!-- Ganti link Google Drive di bawah -->
+      <a href="https://drive.google.com/" target="_blank">▶ Tonton Video Permintaan Maaf</a>
+    </div>
+
+    <footer>
+      © 2025 | Disampaikan dengan itikad baik dan tanggung jawab
+    </footer>
   </div>
-
-  <footer>
-    Dibuat dengan niat baik dan semangat memperbaiki diri 🌼
-  </footer>
 </body>
 </html>
-
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Permintaan Maaf</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Comic Sans MS', 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #fff176, #ffeb3b);
-      overflow-x: hidden;
-      text-align: center;
-    }
-    header {
-      padding: 60px 20px 30px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #1a237e;
-    }
-    p {
-      font-size: 1.1rem;
-      color: #333;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.7;
-    }
-
-    /* Minion animation */
-    .minion {
-      width: 120px;
-      height: 180px;
-      background: #ffeb3b;
-      border-radius: 60px 60px 40px 40px;
-      margin: 40px auto;
-      position: relative;
-      animation: bounce 2s infinite;
-    }
-    .eye {
-      width: 40px;
-      height: 40px;
-      background: #fff;
-      border-radius: 50%;
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      border: 4px solid #555;
-    }
-    .eye::after {
-      content: '';
-      width: 15px;
-      height: 15px;
-      background: #000;
-      border-radius: 50%;
-      position: absolute;
-      top: 12px;
-      left: 12px;
-    }
-    .mouth {
-      width: 40px
