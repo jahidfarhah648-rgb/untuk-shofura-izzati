@@ -10,93 +10,163 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      background: linear-gradient(135deg, #fff7ed, #ffe0b2);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow-x: hidden;
     }
+
     .card {
-      background: #fff;
-      max-width: 900px;
-      width: 90%;
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-      animation: fadeIn 1.5s ease;
+      background: #ffffff;
+      max-width: 950px;
+      width: 92%;
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: 0 25px 60px rgba(255,140,0,0.25);
+      animation: floatIn 1.6s ease;
+      position: relative;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(255,165,0,0.4), transparent 70%);
+      animation: blob 6s infinite alternate;
     }
+
+    @keyframes blob {
+      from { transform: scale(1) translate(0,0); }
+      to { transform: scale(1.2) translate(-20px,20px); }
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(50px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
     h1 {
       text-align: center;
-      color: #1f3c88;
-      margin-bottom: 10px;
-      animation: slideDown 1.2s ease;
+      color: #ff7a00;
+      margin-bottom: 8px;
+      font-size: 40px;
+      animation: pop 1.2s ease;
     }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      80% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
     }
+
     .subtitle {
       text-align: center;
-      color: #555;
-      margin-bottom: 30px;
+      color: #777;
+      margin-bottom: 36px;
+      font-size: 16px;
+      animation: fadeUp 1.5s ease;
     }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      gap: 36px;
+      align-items: center;
     }
+
+    .photo {
+      position: relative;
+    }
+
     .photo img {
       width: 100%;
-      border-radius: 18px;
-      animation: zoomIn 1.5s ease;
+      border-radius: 22px;
+      animation: photoFloat 3s ease-in-out infinite alternate;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.2);
     }
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+
+    @keyframes photoFloat {
+      from { transform: translateY(0); }
+      to { transform: translateY(-12px); }
     }
+
+    .photo::after {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border-radius: 26px;
+      border: 2px dashed rgba(255,165,0,0.4);
+      animation: dash 6s linear infinite;
+    }
+
+    @keyframes dash {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     .text {
-      font-size: 16px;
-      line-height: 1.8;
+      font-size: 17px;
+      line-height: 1.9;
       color: #333;
-      animation: fadeIn 2s ease;
+      animation: fadeUp 2s ease;
     }
-    .text strong { color: #1f3c88; }
+
+    .text strong { color: #ff7a00; }
+
     .cta {
-      margin-top: 40px;
+      margin-top: 48px;
       text-align: center;
     }
+
     .cta a {
-      display: inline-block;
-      padding: 16px 32px;
-      background: linear-gradient(135deg, #1f3c88, #4e73df);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 42px;
+      background: linear-gradient(135deg, #ff7a00, #ffa733);
       color: #fff;
       text-decoration: none;
-      border-radius: 50px;
+      border-radius: 60px;
       font-weight: 600;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: pulse 2s infinite;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      animation: pulse 2.2s infinite;
+      box-shadow: 0 14px 30px rgba(255,122,0,0.5);
     }
+
     .cta a:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 25px rgba(31,60,136,0.4);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 22px 45px rgba(255,122,0,0.6);
     }
+
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(78,115,223,0.6); }
-      70% { box-shadow: 0 0 0 20px rgba(78,115,223,0); }
-      100% { box-shadow: 0 0 0 0 rgba(78,115,223,0); }
+      0% { box-shadow: 0 0 0 0 rgba(255,165,0,0.6); }
+      70% { box-shadow: 0 0 0 28px rgba(255,165,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,165,0,0); }
     }
+
     footer {
-      margin-top: 30px;
+      margin-top: 36px;
       text-align: center;
       font-size: 14px;
-      color: #777;
+      color: #888;
+      animation: fadeUp 2.5s ease;
     }
+
     @media (max-width: 768px) {
+      h1 { font-size: 32px; }
       .content { grid-template-columns: 1fr; }
+      .card { padding: 32px; }
     }
   </style>
 </head>
@@ -108,7 +178,7 @@
     <div class="content">
       <div class="photo">
         <!-- Ganti src di bawah dengan foto yang diinginkan -->
-        <img src="https://www.google.com/search?sca_esv=9ab5ee02a9f795df&rlz=1C1GCEA_enID1115ID1115&sxsrf=AE3TifM8ru4JVF6XFFwGBBlRmfxHxr7A4w:1766818626281&udm=2&fbs=AIIjpHykWxmO2YCYQJSVI5m5OREjL565wVkEiHz50qLBZxSnIyS3JW1yY_vWFsVi4ACAV2ZsMF7BwmoSJdRFQEiU60sTnQu2w2YrdwZtcM3E5FAFL2cZi2_WhQ4wCf3bQsT38SnuDpu8AOIFlV_Ee-BT6BXtOQ9ErlzxpXIeA5yw70v-Ar-mOI1VOyRLe5tN_QfFqAY4bMetAU_1BpzvaKz9t0vhr3tJjg&q=bob+minion+hd&sa=X&ved=2ahUKEwj_oOikmN2RAxVmxDgGHaBpE14QtKgLegQIFBAB&biw=1280&bih=593&dpr=1.5#sv=CAMSVhoyKhBlLXNEb1lxNERQMkJfeFFNMg5zRG9ZcTREUDJCX3hRTToOVE5hZ29FSHZJUHVNWU0gBCocCgZtb3NhaWMSEGUtc0RvWXE0RFAyQl94UU0YADABGAcggufe2g8wAkoKCAIQAhgCIAIoAg" alt="Foto Kebersamaan" />
+        <img src="1000106575.jpg" alt="Kenangan" />
       </div>
       <div class="text">
         <p>
