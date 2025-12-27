@@ -171,42 +171,79 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Permintaan Maaf</h1>
-    <div class="subtitle">Dengan penuh kesadaran dan ketulusan</div>
+  <div class="emoji-float">🟠</div>
+  <div class="emoji-float delay">✨</div>
+  <div class="emoji-float delay2">💛</div>
+
+  <div class="card fun">
+    <h1>Heii Shofuraaa 😆</h1>
+    <div class="subtitle">Ini bukan drama korea, tapi permintaan maaf yang serius tapi santai 🙏🧡</div>
 
     <div class="content">
       <div class="photo">
-        <!-- Ganti src di bawah dengan foto yang diinginkan -->
-        <img src="1000106575.jpg" alt="Kenangan" />
+        <img src="1000106575.jpg" alt="Foto Kebersamaan" />
       </div>
-      <div class="text">
+      <div class="text fun-text">
         <p>
-          Saya, <strong>Muhammad Qais Nashrullah</strong>, selaku Presiden PKS,
-          dengan kerendahan hati menyampaikan permohonan maaf yang sebesar-besarnya
-          kepada <strong>Shofura Izzati</strong>.
+          Halo <strong>Shofura Izzati</strong> 👋<br><br>
+          Aku, <strong>Muhammad Qais Nashrullah</strong>,
+          dengan penuh kesadaran (dan sedikit rasa deg‑degan 😬),
+          mau bilang satu hal penting…
+        </p>
+        <p class="highlight">
+          👉 Aku minta maaf yaa 🙏🧡
         </p>
         <p>
-          Permintaan maaf ini lahir dari kesadaran penuh atas sikap, ucapan,
-          maupun keputusan yang telah menimbulkan ketidaknyamanan, luka,
-          atau kekecewaan.
+          Kalau ada sikap, kata-kata, atau keputusan
+          yang bikin kamu nggak nyaman,
+          aku beneran nyesel dan pengen memperbaiki.
         </p>
         <p>
-          Saya berharap permohonan maaf ini dapat menjadi langkah awal
-          untuk memperbaiki hubungan, menumbuhkan kembali kepercayaan,
-          dan menjaga nilai saling menghormati.
+          Semoga setelah ini kita bisa ketawa lagi,
+          ngobrol lagi, dan vibes-nya balik seru 🎉
         </p>
       </div>
     </div>
 
     <div class="cta">
-      <!-- Ganti link Google Drive di bawah -->
-      <a href="https://drive.google.com/" target="_blank">▶ Tonton Video Permintaan Maaf</a>
+      <a href="https://drive.google.com/" target="_blank">🎬 Klik di sini, ada videonya!</a>
     </div>
 
     <footer>
-      © 2025 | Disampaikan dengan itikad baik dan tanggung jawab
+      Dibuat dengan niat baik, sedikit humor, dan banyak harapan 😄🧡
     </footer>
   </div>
+
+  <style>
+    .fun h1 { color: #ff6a00; }
+    .fun-text { font-size: 18px; }
+    .highlight {
+      font-size: 22px;
+      font-weight: 600;
+      color: #ff6a00;
+      animation: wiggle 1.5s infinite;
+    }
+    @keyframes wiggle {
+      0%,100% { transform: rotate(0); }
+      25% { transform: rotate(1deg); }
+      75% { transform: rotate(-1deg); }
+    }
+    .emoji-float {
+      position: fixed;
+      bottom: -50px;
+      left: 10%;
+      font-size: 32px;
+      animation: floatUp 6s infinite;
+      z-index: 0;
+    }
+    .emoji-float.delay { left: 50%; animation-delay: 2s; }
+    .emoji-float.delay2 { left: 80%; animation-delay: 4s; }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 0; }
+      20% { opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
 </body>
 </html>
+
